@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "ProxyFlow",
+  "version": "2.0.0",
+  "description": "Fast, privacy-first browser proxy switcher with Auto Switch rules, PAC routing, encrypted local storage, and network diagnostics.",
+  "permissions": [
+    "proxy",
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "webRequest",
+    "webRequestAuthProvider",
+    "tabs",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ProxyFlow",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+O"
+      },
+      "description": "Open ProxyFlow popup"
+    },
+    "quick-switch": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      },
+      "description": "Cycle to next Quick Switch profile"
+    }
+  }
+}

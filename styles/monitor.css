@@ -1,0 +1,72 @@
+/* styles/monitor.css — Light-Mode Network Request & Route Monitor */
+
+body.pm-monitor {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+}
+
+.pm-mon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex-wrap: wrap;
+}
+
+.pm-mon-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pm-mon-title h1 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pm-mon-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pm-mon-controls .pm-input,
+.pm-mon-controls .pm-select {
+  width: auto;
+  min-width: 150px;
+}
+
+.pm-mon-body {
+  padding: 18px 24px;
+  flex: 1;
+}
+
+.pm-mon-table-card {
+  overflow: hidden;
+}
+
+.pm-mon-url {
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.pm-mon-domain {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+}

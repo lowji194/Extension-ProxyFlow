@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Monitor — ProxyFlow</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/options.css">
+  <link rel="stylesheet" href="styles/monitor.css">
+</head>
+<body class="pm-monitor">
+  <header class="pm-mon-header">
+    <div class="pm-mon-title">
+      <img src="icons/logo.svg" alt="" width="24" height="24">
+      <h1>Network Request Monitor</h1>
+      <span id="monitorCountBadge" class="pm-badge pm-badge--neutral">0 requests</span>
+    </div>
+    <div class="pm-mon-controls" id="monitorControls">
+      <select id="tabFilterSelect" class="pm-select pm-select--sm" aria-label="Filter by tab">
+        <option value="all">All Tabs</option>
+      </select>
+      <select id="statusFilterSelect" class="pm-select pm-select--sm" aria-label="Filter by status">
+        <option value="all">All Statuses</option>
+        <option value="failed">Failed Only</option>
+        <option value="http_error">HTTP 4xx / 5xx</option>
+        <option value="ok">OK (2xx / 3xx)</option>
+      </select>
+      <input id="urlSearchInput" type="search" class="pm-input pm-input--sm" placeholder="Filter domain or URL...">
+      <div id="monitorActionBtns" class="pm-row-actions"></div>
+    </div>
+  </header>
+
+  <main class="pm-mon-body">
+    <div class="pm-card pm-mon-table-card">
+      <div class="pm-table-wrap">
+        <table class="pm-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Status</th>
+              <th>Method</th>
+              <th>Domain</th>
+              <th>URL</th>
+              <th>Routed Via</th>
+              <th>Quick Rule</th>
+            </tr>
+          </thead>
+          <tbody id="monitorTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <div id="toastHost" class="pm-toast-host" aria-live="polite"></div>
+
+  <script type="module" src="monitor.js"></script>
+</body>
+</html>

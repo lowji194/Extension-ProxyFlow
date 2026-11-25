@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProxyFlow</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body class="pm-popup">
+  <header class="pm-popup-header">
+    <div class="pm-brand">
+      <img src="icons/logo.svg" alt="" class="pm-brand__logo">
+      <div>
+        <h1 class="pm-brand__title">ProxyFlow</h1>
+        <div id="activeSummary" class="pm-brand__sub">Loading profile...</div>
+      </div>
+    </div>
+    <div class="pm-header-actions" id="headerActions"></div>
+  </header>
+
+  <main class="pm-popup-body">
+    <div id="alertRegion"></div>
+
+    <section class="pm-card pm-status-strip" aria-label="Connection and tab status">
+      <div class="pm-ip-row">
+        <button id="ipPillBtn" type="button" class="pm-ip-pill" title="Click to copy public IP">
+          <span class="pm-ip-label">Public IP:</span>
+          <span id="currentIpValue" class="pm-ip-value is-loading">Checking...</span>
+        </button>
+        <div id="ipRefreshSlot"></div>
+      </div>
+
+      <div id="tabRouteRow" class="pm-tab-route pm-hidden">
+        <div class="pm-tab-route__info">
+          <span id="tabDomainLabel" class="pm-tab-domain"></span>
+          <span id="tabResolvedBadge"></span>
+        </div>
+        <div class="pm-tab-route__actions" id="tabRouteActions"></div>
+      </div>
+    </section>
+
+    <div id="failedDomainsDrawer" class="pm-drawer pm-hidden"></div>
+    <div id="addRuleDrawer" class="pm-drawer pm-hidden"></div>
+
+    <section class="pm-mode-bar" aria-label="Proxy modes">
+      <div id="modePills" class="pm-mode-pills"></div>
+      <div id="modeAddBtnSlot"></div>
+    </section>
+
+    <div id="quickAddDrawer" class="pm-drawer pm-hidden">
+      <div class="pm-drawer__head">
+        <span>Add Proxy Server</span>
+        <button id="closeQuickAddBtn" type="button" class="pm-btn pm-btn--ghost pm-btn--icon-sm" aria-label="Close Add Proxy form"></button>
+      </div>
+      <input
+        id="quickParseInput"
+        type="text"
+        class="pm-input pm-input--sm pm-mono"
+        placeholder="Paste ip:port:user:pass, user:pass@ip:port, or socks5://..."
+      >
+      <div class="pm-grid-3">
+        <select id="addSchemeInput" class="pm-select pm-select--sm" aria-label="Protocol">
+          <option value="http">HTTP</option>
+          <option value="https">HTTPS</option>
+          <option value="socks4">SOCKS4</option>
+          <option value="socks5">SOCKS5</option>
+        </select>
+        <input id="addHostInput" type="text" class="pm-input pm-input--sm pm-mono" placeholder="Host / IP">
+        <input id="addPortInput" type="number" min="1" max="65535" class="pm-input pm-input--sm pm-mono" placeholder="Port">
+      </div>
+      <div class="pm-grid-3">
+        <input id="addLabelInput" type="text" class="pm-input pm-input--sm" placeholder="Label (optional)">
+        <input id="addUserInput" type="text" class="pm-input pm-input--sm" placeholder="Username">
+        <input id="addPassInput" type="password" class="pm-input pm-input--sm" placeholder="Password">
+      </div>
+      <div id="socksAuthHint" class="pm-inline-note pm-hidden">
+        Chromium browsers do not support username/password auth for SOCKS proxies. Use HTTP/HTTPS for authenticated proxies.
+      </div>
+      <div class="pm-drawer-actions">
+        <button id="saveOnlyProxyBtn" type="button" class="pm-btn pm-btn--sm">Add to List</button>
+        <button id="saveActivateProxyBtn" type="button" class="pm-btn pm-btn--sm pm-btn--primary">Add &amp; Activate</button>
+      </div>
+    </div>
+
+    <section class="pm-card pm-list-card" aria-label="Saved proxy profiles">
+      <div class="pm-list-toolbar">
+        <div class="pm-search-wrap" id="searchWrap">
+          <input id="proxySearchInput" type="search" class="pm-input pm-input--sm pm-search-input" placeholder="Filter by label, host, or status...">
+        </div>
+        <div id="listToolbarActions" class="pm-row-actions"></div>
+      </div>
+      <div id="proxyListContainer" class="pm-proxy-scroll"></div>
+    </section>
+  </main>
+
+  <div id="detailModalHost" class="pm-modal-backdrop pm-hidden" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle"></div>
+  <div id="toastHost" class="pm-toast-host" aria-live="polite"></div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Options — ProxyFlow</title>
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body class="pm-options">
+  <aside class="pm-sidebar">
+    <div class="pm-sidebar__brand">
+      <img src="icons/logo.svg" alt="">
+      <div>
+        <h2 class="pm-sidebar__title">ProxyFlow</h2>
+        <div class="pm-sidebar__version" id="extVersion">v2.0.0</div>
+      </div>
+    </div>
+
+    <nav aria-label="Settings navigation">
+      <div class="pm-nav-group">
+        <div class="pm-nav-label">Profiles &amp; Routing</div>
+        <div id="navProfilesGroup"></div>
+      </div>
+      <div class="pm-nav-group">
+        <div class="pm-nav-label">Tools &amp; System</div>
+        <div id="navSystemGroup"></div>
+      </div>
+    </nav>
+
+    <div class="pm-sidebar__footer" id="sidebarStatus">
+      Active: Direct
+    </div>
+  </aside>
+
+  <main class="pm-main" id="optionsMain"></main>
+
+  <div id="optionsModalHost" class="pm-modal-backdrop pm-hidden" role="dialog" aria-modal="true"></div>
+  <div id="toastHost" class="pm-toast-host" aria-live="polite"></div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
