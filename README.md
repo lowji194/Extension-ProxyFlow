@@ -77,3 +77,13 @@
 | `alarms` | Run optional periodic batch checks and PAC/rule list refreshes reliably in MV3 |
 | `contextMenus` | Provide quick route inspection entries from page/link context menus |
 | `<all_urls>` | Required by Chromium proxy auth challenges and active-tab request monitoring |
+
+---
+
+## ☕ Buy me a coffee
+
+If you find this project useful, consider buying me a coffee to support its maintenance and development. Thank you!
+
+<p align="center">
+  <a href="https://raw.githubusercontent.com/lowji194/lowji194/main/assets/donate-qr.svg"><img src="https://raw.githubusercontent.com/lowji194/lowji194/main/assets/donate-qr.svg" width="300" alt="Donate — scan the QR code"></a>
+</p>
